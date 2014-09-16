@@ -45,20 +45,6 @@ class plgSystemVinaora_VietAlias extends JPlugin
 		}
 	}
 
-	function onAfterDispatch(){
-		
-		if ( $this->layout != 'edit') return;
-		
-		$auto_complete	= (bool) $this->params->get('auto_complete');
-		$pages			= $this->params->get('auto_complete_on_specific');
-		
-		if( $auto_complete || (strpos($pages, $this->option) !== false) )
-		{
-			$document = &JFactory::getDocument();
-			$document->addScript( rtrim(JURI::root( true ), '/').'/media/plg_system_vinaora_vietalias/js/vinaora_vietalias.js' );
-		}
-		return true;
-	}
 	
 	private function _fixOldAlias($tablename="content"){
 
