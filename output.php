@@ -87,16 +87,13 @@ class JFilterOutput
 	{
 		// Remove any '-' from the string since they will be used as concatenaters
 		$str = str_replace('-', ' ', $string);
-		$str = str_replace('&', 'and', $string); ##TB & to and
 		
 		/****************************************************************************************************************************/
-		// BEGIN: Overrided by Vinaora
+		// BEGIN: Overrided by TB
 		
-		require_once dirname(__FILE__).DS.'helper.php';
+		$str = str_replace('&', 'and', $string);
 		
-		$str = plgSystemVinaora_VietAliasHelper::vt_safe_vietnamese($str);
-		
-		// END: Overrided by Vinaora
+		// END: Overrided by TB
 		/****************************************************************************************************************************/
 
 		$lang = JFactory::getLanguage();
@@ -132,7 +129,13 @@ class JFilterOutput
 		// Would be great to let the spaces in but only Firefox is friendly with this
 
 		$str = str_replace('-', ' ', $str);
-		$str = str_replace('&', 'and', $string); ##TB & to and
+		/****************************************************************************************************************************/
+		// BEGIN: Overrided by TB
+		
+		$str = str_replace('&', 'and', $string);
+		
+		// END: Overrided by TB
+		/****************************************************************************************************************************/
 
 		// Replace forbidden characters by whitespaces
 		$str = preg_replace('#[:\#\*"@+=;!><&\.%()\]\/\'\\\\|\[]#', "\x20", $str);
